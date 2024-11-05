@@ -3,11 +3,9 @@
 def find_common_participants (str1, str2, spl_arg=','):
     list1=str1.split(spl_arg)
     list2=str2.split(spl_arg)
-    common_list=[]
-    for name1 in list1:
-        for name2 in list2:
-            if name1==name2:
-                common_list.append(name1)
+
+    common_list=list(set(list1).intersection(list2))
+    common_list.sort()
     return common_list
 
 participants_first_group = "Иванов|Петров|Сидоров"

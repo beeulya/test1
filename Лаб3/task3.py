@@ -1,7 +1,6 @@
 # TODO  Напишите функцию count_letters
 def count_letters (text):
     text_low=text.lower()
-    #print(text_low)
     symbols =[]
     book={}
     flag=0
@@ -13,20 +12,16 @@ def count_letters (text):
             if flag==0:
                 symbols.append(elem)
             flag=0
-    #print(symbols)
     for symb in symbols:
         book[symb]=text.count(symb)
-    #print(book)
     return book
 
 # TODO Напишите функцию calculate_frequency
 
 def calculate_frequency(book):
     total_count=sum(book.values())
-    #print(total_count)
     for symb, numb in book.items():
         book[symb]=numb/total_count
-    #print(book)
     return book
 
 main_str = """
@@ -70,11 +65,4 @@ letters_book=count_letters(main_str)
 letters_freq=calculate_frequency(letters_book)
 
 for symb, freq in letters_freq.items():
-    #print(freq)
-    #freq = float('{:.3f}'.format(freq))
-    if symb=='о'or symb=='е' or symb=='ы' or symb=='а'or symb=='т'or symb=='в'or symb=='х':
-        freq-=0.01
-        #print(symb,': ','%.2f' %freq,sep='')
-    if symb=='т' or symb=='в':
-        freq+=0.02
-    print(symb,': ','%.2f' %freq,sep='')
+    print(f"{symb}: {freq:.2f}")
